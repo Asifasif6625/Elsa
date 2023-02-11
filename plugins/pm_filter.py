@@ -1119,7 +1119,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 [
                     InlineKeyboardButton('Redirect To', callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}'),
                     InlineKeyboardButton('Bot PM' if settings["botpm"] else 'Channel',
-                                         callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}')
+                                         callback_data=f'setgs#botpm#{str(grp_id)}#{str(grp_id)}')
                 ],
                 [
                     InlineKeyboardButton('File Secure',

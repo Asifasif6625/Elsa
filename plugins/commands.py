@@ -42,7 +42,10 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('sᴜʀᴘʀɪsᴇ', callback_data='start')
+            InlineKeyboardButton('🎬𝖏𝖔𝖎𝖓 𝖈𝖍𝖆𝖓𝖓𝖊𝖑🎬', url='https://t.me/malayalamvibe'),
+            InlineKeyboardButton('📀𝖏𝖔𝖎𝖓 𝖌𝖗𝖔𝖚𝖕📀', url='https://t.me/mv_requst_group')
+        ], [
+            InlineKeyboardButton('🎞️𝖚𝖘𝖊 𝖔𝖋𝖋𝖎𝖈𝖎𝖆𝖑 𝖇𝖔𝖙🎞️', url='https://t.me/Movie_flix_bot')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         m=await message.reply_sticker("CAACAgUAAxkBAAINdmL9uWnC3ptj9YnTjFU4YGr5dtzwAAIEAAPBJDExieUdbguzyBAeBA") 
@@ -85,7 +88,10 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('sᴜʀᴘʀɪsᴇ', callback_data='start')
+            InlineKeyboardButton('🎬𝖏𝖔𝖎𝖓 𝖈𝖍𝖆𝖓𝖓𝖊𝖑🎬', url='https://t.me/malayalamvibe'),
+            InlineKeyboardButton('📀𝖏𝖔𝖎𝖓 𝖌𝖗𝖔𝖚𝖕📀', url='https://t.me/mv_requst_group')
+        ], [
+            InlineKeyboardButton('🎞️𝖚𝖘𝖊 𝖔𝖋𝖋𝖎𝖈𝖎𝖆𝖑 𝖇𝖔𝖙🎞️', url='https://t.me/Movie_flix_bot')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(

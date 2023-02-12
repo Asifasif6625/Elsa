@@ -653,6 +653,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ʙᴀᴄᴋ ᴛᴏ sᴛᴀʀᴛ', callback_data='surprise')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        if query.from_user.id in ADMINS:
         await client.edit_message_media(
             query.message.chat.id, 
             query.message.id, 

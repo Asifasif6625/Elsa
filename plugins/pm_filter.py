@@ -625,7 +625,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer("▣ ᴛɪᴘs ▣\n\n★ ᴛʏᴘᴇ ᴄᴏʀʀᴇᴄᴛ sᴘᴇʟʟɪɴɢ (ɢᴏᴏɢʟᴇ)\n\n★ ɪғ ʏᴏᴜ ɴᴏᴛ ɢᴇᴛ ʏᴏᴜʀ ғɪʟᴇ ɪɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ᴛʜᴇɴ ᴛʜᴇ ɴᴇxᴛ sᴛᴇᴘ ɪs ᴄʟɪᴄᴋ ɴᴇxᴛ ʙᴜᴛᴛᴏɴ.\n\n★ ᴄᴏɴᴛɪɴᴜᴇ ᴛʜɪs ᴍᴇᴛʜᴏᴅ ᴛᴏ ɢᴇᴛᴛɪɴɢ ʏᴏᴜ ғɪʟᴇ\n\n❣ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄɪɴᴇᴍᴀʟᴀ. ᴄᴏᴍ", show_alert=True)
 
     elif query.data == "surprise":
-        btn = [[
+        buttons = [[
             InlineKeyboardButton('🎬𝖏𝖔𝖎𝖓 𝖈𝖍𝖆𝖓𝖓𝖊𝖑🎬', url='https://t.me/malayalamvibe'),
             InlineKeyboardButton('📀𝖏𝖔𝖎𝖓 𝖌𝖗𝖔𝖚𝖕📀', url='https://t.me/mv_requst_group')
         ], [

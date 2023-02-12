@@ -653,7 +653,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ʙᴀᴄᴋ ᴛᴏ sᴛᴀʀᴛ', callback_data='surprise')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        if query.from_user.id in ADMINS:
         await client.edit_message_media(
             query.message.chat.id, 
             query.message.id, 
@@ -682,6 +681,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start')      
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        if query.from_user.id in ADMINS:
         await client.edit_message_media(
             query.message.chat.id, 
             query.message.id, 
@@ -778,6 +778,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        if query.from_user.id in ADMINS:
         await client.edit_message_media(
             query.message.chat.id, 
             query.message.id, 

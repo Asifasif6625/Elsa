@@ -626,7 +626,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "surprise":
         btn = [[
-            InlineKeyboardButton('⚠️admin⚠️', callback_data='start')
+            InlineKeyboardButton('🎬𝖏𝖔𝖎𝖓 𝖈𝖍𝖆𝖓𝖓𝖊𝖑🎬', url='https://t.me/malayalamvibe'),
+            InlineKeyboardButton('📀𝖏𝖔𝖎𝖓 𝖌𝖗𝖔𝖚𝖕📀', url='https://t.me/mv_requst_group')
+        ], [
+            InlineKeyboardButton('🎞️𝖚𝖘𝖊 𝖔𝖋𝖋𝖎𝖈𝖎𝖆𝖑 𝖇𝖔𝖙🎞️', url='https://t.me/Movie_flix_bot')
         ]]
         reply_markup=InlineKeyboardMarkup(btn)
         await client.edit_message_media(
@@ -681,7 +684,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start')      
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        if query.from_user.id in ADMINS:
         await client.edit_message_media(
             query.message.chat.id, 
             query.message.id, 
@@ -778,7 +780,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        if query.from_user.id in ADMINS:
         await client.edit_message_media(
             query.message.chat.id, 
             query.message.id, 

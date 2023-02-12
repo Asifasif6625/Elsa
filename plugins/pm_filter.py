@@ -625,11 +625,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer("▣ ᴛɪᴘs ▣\n\n★ ᴛʏᴘᴇ ᴄᴏʀʀᴇᴄᴛ sᴘᴇʟʟɪɴɢ (ɢᴏᴏɢʟᴇ)\n\n★ ɪғ ʏᴏᴜ ɴᴏᴛ ɢᴇᴛ ʏᴏᴜʀ ғɪʟᴇ ɪɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ᴛʜᴇɴ ᴛʜᴇ ɴᴇxᴛ sᴛᴇᴘ ɪs ᴄʟɪᴄᴋ ɴᴇxᴛ ʙᴜᴛᴛᴏɴ.\n\n★ ᴄᴏɴᴛɪɴᴜᴇ ᴛʜɪs ᴍᴇᴛʜᴏᴅ ᴛᴏ ɢᴇᴛᴛɪɴɢ ʏᴏᴜ ғɪʟᴇ\n\n❣ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄɪɴᴇᴍᴀʟᴀ. ᴄᴏᴍ", show_alert=True)
 
     elif query.data == "surprise":
-        buttons = [[
-            InlineKeyboardButton('🎬𝖏𝖔𝖎𝖓 𝖈𝖍𝖆𝖓𝖓𝖊𝖑🎬', url='https://t.me/malayalamvibe'),
-            InlineKeyboardButton('📀𝖏𝖔𝖎𝖓 𝖌𝖗𝖔𝖚𝖕📀', url='https://t.me/mv_requst_group')
-        ], [
-            InlineKeyboardButton('🎞️𝖚𝖘𝖊 𝖔𝖋𝖋𝖎𝖈𝖎𝖆𝖑 𝖇𝖔𝖙🎞️', url='https://t.me/Movie_flix_bot')
+        btn = [[
+            InlineKeyboardButton('sᴜʀᴘʀɪsᴇ', callback_data='start')
         ]]
         reply_markup=InlineKeyboardMarkup(btn)
         await client.edit_message_media(
@@ -645,15 +642,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('× ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘs ×', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('🎬𝖏𝖔𝖎𝖓 𝖈𝖍𝖆𝖓𝖓𝖊𝖑🎬', url='https://t.me/malayalamvibe'),
+            InlineKeyboardButton('📀𝖏𝖔𝖎𝖓 𝖌𝖗𝖔𝖚𝖕📀', url='https://t.me/mv_requst_group')
         ], [
-            InlineKeyboardButton('🔍 sᴇᴀʀᴄʜ', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('ᴏᴡɴ ɪɴғᴏ', url='https://t.me/+ipDgG7Qfrps1ZTJl')
-        ], [
-            InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
-            InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-         ],[
-            InlineKeyboardButton('ʙᴀᴄᴋ ᴛᴏ sᴛᴀʀᴛ', callback_data='surprise')
+            InlineKeyboardButton('🎞️𝖚𝖘𝖊 𝖔𝖋𝖋𝖎𝖈𝖎𝖆𝖑 𝖇𝖔𝖙🎞️', url='https://t.me/Movie_flix_bot')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(

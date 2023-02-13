@@ -1170,9 +1170,63 @@ async def auto_filter(client, msg, spoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
-                z = await message.reply_text(text=f"<b><i>{message.from_user.mention} അതേ നിങ്ങൾ അയച്ച സ്പെല്ലിങ് തെറ്റ് ആണ്. ഗൂഗിൾ നോക്കി ഒന്നും കൂടി മൂവി നെയിം അയക്കുക. നിങ്ങൾ ചോദിച്ച മൂവി OTT റിലീസ് ആയെങ്കിൽ ഞാൻ ഫയൽ തരും.\n🎀എന്നിട്ടും മൂവി കിട്ടുന്നില്ല എങ്കിൽ OTT, DVD ലും മൂവി റിലീസ് ആയികാണില്ല.</i>\n\n𝘠𝘦𝘴, 𝘵𝘩𝘦 𝘴𝘱𝘦𝘭𝘭𝘪𝘯𝘨 𝘺𝘰𝘶 𝘴𝘦𝘯𝘵 𝘪𝘴 𝘪𝘯𝘤𝘰𝘳𝘳𝘦𝘤𝘵. 𝘑𝘶𝘴𝘵 𝘴𝘦𝘢𝘳𝘤𝘩 𝘎𝘰𝘰𝘨𝘭𝘦 𝘢𝘯𝘥 𝘴𝘦𝘯𝘥 𝘵𝘩𝘦 𝘮𝘰𝘷𝘪𝘦 𝘯𝘢𝘮𝘦. 𝘐𝘧 𝘵𝘩𝘦 𝘮𝘰𝘷𝘪𝘦 𝘺𝘰𝘶 𝘢𝘴𝘬𝘦𝘥 𝘧𝘰𝘳 𝘪𝘴 𝘢𝘯 𝘖𝘛𝘛 𝘳𝘦𝘭𝘦𝘢𝘴𝘦, 𝘐 𝘸𝘪𝘭𝘭 𝘱𝘳𝘰𝘷𝘪𝘥𝘦 𝘵𝘩𝘦 𝘧𝘪𝘭𝘦.\n🎀𝘚𝘵𝘪𝘭𝘭 𝘪𝘧 𝘵𝘩𝘦 𝘮𝘰𝘷𝘪𝘦 𝘪𝘴 𝘯𝘰𝘵 𝘢𝘷𝘢𝘪𝘭𝘢𝘣𝘭𝘦 𝘵𝘩𝘦𝘯 𝘵𝘩𝘦 𝘮𝘰𝘷𝘪𝘦 𝘸𝘪𝘭𝘭 𝘯𝘰𝘵 𝘣𝘦 𝘳𝘦𝘭𝘦𝘢𝘴𝘦𝘥 𝘰𝘯 𝘖𝘛𝘛 𝘢𝘯𝘥 𝘋𝘝𝘋.</b>")
-                await asyncio.sleep(100)
-                await z.delete()
+                btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"{imdb.get('title')}",
+                    url=imdb['url'],
+                )
+            ]
+        ]
+    message = quer_y.message.reply_to_message or quer_y.message
+    if imdb:
+        caption = IMDB_TEMPLATE.format(
+            query = imdb['title'],
+            title = imdb['title'],
+            votes = imdb['votes'],
+            aka = imdb["aka"],
+            seasons = imdb["seasons"],
+            box_office = imdb['box_office'],
+            localized_title = imdb['localized_title'],
+            kind = imdb['kind'],
+            imdb_id = imdb["imdb_id"],
+            cast = imdb["cast"],
+            runtime = imdb["runtime"],
+            countries = imdb["countries"],
+            certificates = imdb["certificates"],
+            languages = imdb["languages"],
+            director = imdb["director"],
+            writer = imdb["writer"],
+            producer = imdb["producer"],
+            composer = imdb["composer"],
+            cinematographer = imdb["cinematographer"],
+            music_team = imdb["music_team"],
+            distributors = imdb["distributors"],
+            release_date = imdb['release_date'],
+            year = imdb['year'],
+            genres = imdb['genres'],
+            poster = imdb['poster'],
+            plot = imdb['plot'],
+            rating = imdb['rating'],
+            url = imdb['url'],
+            **locals()
+        )
+    else:
+        caption = "No Results"
+    if imdb.get('poster'):
+        try:
+            await quer_y.message.reply_photo(photo=imdb['poster'], caption=caption, reply_markup=InlineKeyboardMarkup(btn))
+        except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
+            pic = imdb.get('poster')
+            poster = pic.replace('.jpg', "._V1_UX360.jpg")
+            await quer_y.message.reply_photo(photo=poster, caption=caption, reply_markup=InlineKeyboardMarkup(btn))
+        except Exception as e:
+            logger.exception(e)
+            await quer_y.message.reply(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
+        await quer_y.message.delete()
+    else:
+        await quer_y.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
+    await quer_y.answer()
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, msg)
                 else:

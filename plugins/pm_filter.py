@@ -626,7 +626,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "surprise":
         btn = [[
-            InlineKeyboardButton('sᴜʀᴘʀɪsᴇ', callback_data='start')
+            InlineKeyboardButton('𝖈𝖑𝖎𝖈𝖐 𝖒𝖔𝖗𝖊', callback_data='start')
         ]]
         reply_markup=InlineKeyboardMarkup(btn)
         await client.edit_message_media(

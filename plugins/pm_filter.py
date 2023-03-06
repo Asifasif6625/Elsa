@@ -1171,14 +1171,14 @@ async def auto_filter(client, msg, spoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
-                await query.message.edit_text(
-                    text="▣ ▢ ▢"
+                hw = await query.message.edit_text(
+                         text="▣ ▢ ▢"
                 )
-                await query.message.edit_text(
-                    text="▣ ▣ ▢"
+                hw = await query.message.edit_text(
+                         text="▣ ▣ ▢"
                 )
-                await query.message.edit_text(
-                    text="▣ ▣ ▣"
+                hw = await query.message.edit_text(
+                         text="▣ ▣ ▣"
                 )       
                 jd = await message.reply_sticker("CAACAgUAAxkBAAEBU0BkBkDdime1LCoMiMI7Y59e0YOsnAACgggAAtg26FYNmPHigZNWmR4E")
                 await asyncio.sleep(11)

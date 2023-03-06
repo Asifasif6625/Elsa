@@ -45,7 +45,7 @@ async def start(client, message):
             InlineKeyboardButton('𝖈𝖑𝖎𝖈𝖐 𝖒𝖔𝖗𝖊', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        m=await message.reply_text(text=f"𝚑𝚒") 
+        m=await message.reply_text(text=f"<i>JOIN GROUP - https://t.me/+rjw2I6MtjW8xYzRl</i>") 
         await asyncio.sleep()        
         await message.reply_photo(
             photo=random.choice(PICS),

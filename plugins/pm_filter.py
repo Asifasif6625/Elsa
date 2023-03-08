@@ -1304,9 +1304,6 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        jk = await message.reply_sticker("CAACAgUAAxkBAAEBU0BkBkDdime1LCoMiMI7Y59e0YOsnAACgggAAtg26FYNmPHigZNWmR4E")
-        await asyncio.sleep(1)
-        await jk.delete()
         cap = f"<b><i>🐿️𝙃𝙚𝙧𝙚 𝙞𝙨 𝙬𝙝𝙖𝙩 𝙞𝙨 𝙛𝙤𝙪𝙣𝙙 𝙮𝙤𝙪𝙧 𝙦𝙪𝙚𝙧𝙮:\n {search}\n👤𝙍𝙚𝙦𝙪𝙚𝙨𝙩𝙚𝙙 𝘽𝙮 : {message.from_user.mention}\n👥𝙂𝙧𝙤𝙪𝙥 : {message.chat.title}\n📀𝙏𝙤𝙩𝙖𝙡 𝙛𝙞𝙡𝙨 : {str(total_results)}</i></b>"
     if imdb and imdb.get('poster'):
         try:

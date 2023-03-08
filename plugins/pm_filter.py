@@ -612,6 +612,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "pages":
         await query.answer()
+   
+    elif query.data == "makri":
+        await query.answer("{message.from_user.mention}🪛നിങ്ങൾ അയച്ച വാക്കിൽ ഒരു ഫയൽ എന്റെ പക്കലില്ല, ചിലപ്പോൾ നിങ്ങൾ അയച്ച വാക്ക് തെറ്റായിരിക്കും.", show_alert=True)
 
     elif query.data == "reqinfo":
         await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nᴀꜰᴛᴇʀ 10 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\nɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ\n\n❣ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍᴀʟᴀyᴀʟᴀᴍᴠɪʙᴇ", show_alert=True)
@@ -1171,7 +1174,7 @@ async def auto_filter(client, msg, spoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
-                buttons = [[ InlineKeyboardButton(text="ᴍꜱɢ ɪɴ ᴍᴀʟᴀyᴀʟᴀᴍ", callback_data="close") ]]
+                buttons = [[ InlineKeyboardButton(f' ᴍꜱɢ ɪɴ ᴍᴀʟᴀyᴀʟᴀᴍ ', 'makri') ]]
                 z = await message.reply_text(text=f"<i>{message.from_user.mention}🪛I don't have a file in the word you sent, sometimes the word you sent is wrong.</i>", reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(100)
                 await z.delete()

@@ -1352,7 +1352,7 @@ async def auto_filter(client, msg, spoll=False):
                 await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. Kɪɴᴅʟʏ ᴜsᴇ ɪɴʟɪɴᴇ sᴇᴀʀᴄʜ ᴏʀ ᴍᴀᴋᴇ ᴀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴀᴅᴅ ᴍᴇ ᴀs ᴀᴅᴍɪɴ ᴛᴏ ɢᴇᴛ ᴍᴏᴠɪᴇ ғɪʟᴇs. Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...\n\n😮‍💨കുറച്ച് സമയത്തേക്ക് താഴെ കാണുന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്ത് അവിടെ മൂവി റിക്വസ്റ്റ് ചെയ്യുക..</b>", reply_markup=InlineKeyboardMarkup(buttons))
             else:
                 logger.exception(e)
-                fek = await message.reply_video(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+                fek = await message.reply_video(video=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
                 try:
                     if settings['auto_delete']:
                         await asyncio.sleep(600)
@@ -1371,7 +1371,7 @@ async def auto_filter(client, msg, spoll=False):
             buttons = [[ InlineKeyboardButton(text="💖ᴊᴏɪɴ ʀᴇqᴜᴇꜱᴛ ɢʀᴏᴜᴩ💖", url=f"https://t.me/mv_requst") ]]
             await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. Kɪɴᴅʟʏ ᴜsᴇ ɪɴʟɪɴᴇ sᴇᴀʀᴄʜ ᴏʀ ᴍᴀᴋᴇ ᴀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴀᴅᴅ ᴍᴇ ᴀs ᴀᴅᴍɪɴ ᴛᴏ ɢᴇᴛ ᴍᴏᴠɪᴇ ғɪʟᴇs. Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...\n\n😮‍💨കുറച്ച് സമയത്തേക്ക് താഴെ കാണുന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്ത് അവിടെ മൂവി റിക്വസ്റ്റ് ചെയ്യുക..</b>", reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            fuk = await message.reply_video(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            fuk = await message.reply_video(video=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
             try:
                 if settings['auto_delete']:
                     await asyncio.sleep(600)

@@ -1174,16 +1174,8 @@ async def auto_filter(client, msg, spoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
-                xx = await message.reply_photo(
-                photo=SPELL_IMG, 
-                caption=script.I_CUDNT.format(mv_rqst),
-                reply_markup=InlineKeyboardMarkup(button)
-                )
-                await asyncio.sleep(30)
-                await xx.delete()
-                return
                 buttons = [[ InlineKeyboardButton(f' ᴍꜱɢ ɪɴ ᴍᴀʟᴀyᴀʟᴀᴍ ', 'makri') ]]
-                z = await message.reply_text(text=f"<i>{message.from_user.mention}🪛I don't have a file in the word you sent, sometimes the word you sent is wrong.If this movie is an OTT release please check the spelling and then send it.</i>", reply_markup=InlineKeyboardMarkup(buttons))
+                z = await message.reply_video(video=NOR_IMG, text=f"<i>{message.from_user.mention}🪛I don't have a file in the word you sent, sometimes the word you sent is wrong.If this movie is an OTT release please check the spelling and then send it.</i>", reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(100)
                 await z.delete()
                 if settings["spell_check"]:

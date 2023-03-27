@@ -1174,7 +1174,15 @@ async def auto_filter(client, msg, spoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
-                flf = await message.reply_video(video=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+                await query.message.edit_text(
+                    text="▣ ▢ ▢"
+                )
+                await query.message.edit_text(
+                   text="▣ ▣ ▢"
+                )
+                await query.message.edit_text(
+                   text="▣ ▣ ▣"
+                )       
                 buttons = [[ InlineKeyboardButton('💬ᴍꜱɢ ɪɴ ᴍᴀʟᴀyᴀʟᴀᴍ💬', callback_data='makri') ]]
                 z = await message.reply_text(text=f"<i>{message.from_user.mention}🪛I don't have a file in the word you sent, sometimes the word you sent is wrong.If this movie is an OTT release please check the spelling and then send it.</i>", reply_markup = InlineKeyboardMarkup(buttons))   
                 await asyncio.sleep(100)

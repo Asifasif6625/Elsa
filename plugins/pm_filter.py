@@ -1174,15 +1174,50 @@ async def auto_filter(client, msg, spoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
-                buttons = [[ InlineKeyboardButton('💬ᴍꜱɢ ɪɴ ᴍᴀʟᴀyᴀʟᴀᴍ💬', callback_data='makri') ]]
-                z = await message.reply_text(text=f"<i>{message.from_user.mention}🪛I don't have a file in the word you sent, sometimes the word you sent is wrong.If this movie is an OTT release please check the spelling and then send it.</i>", reply_markup = InlineKeyboardMarkup(buttons))   
-                await asyncio.sleep(100)
-                await z.delete()
-                if settings["spell_check"]:
+                imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
+                TEMPLATE = settings['template']
+                if imdb:
+                    cap = TEMPLATE.format(
+                        query=search,
+                        title=imdb['title'],
+                        votes=imdb['votes'],
+                        aka=imdb["aka"],
+                        seasons=imdb["seasons"],
+                        box_office=imdb['box_office'],
+                        localized_title=imdb['localized_title'],
+                        kind=imdb['kind'],
+                        imdb_id=imdb["imdb_id"],
+                        cast=imdb["cast"],
+                        runtime=imdb["runtime"],
+                        countries=imdb["countries"],
+                        certificates=imdb["certificates"],
+                        languages=imdb["languages"],
+                        director=imdb["director"],
+                        writer=imdb["writer"],
+                        producer=imdb["producer"],
+                        composer=imdb["composer"],
+                        cinematographer=imdb["cinematographer"],
+                        music_team=imdb["music_team"],
+                        distributors=imdb["distributors"],
+                        release_date=imdb['release_date'],
+                        year=imdb['year'],
+                        genres=imdb['genres'],
+                        poster=imdb['poster'],
+                        plot=imdb['plot'],
+                        rating=imdb['rating'],
+                        url=imdb['url'],
+                        **locals()
+                    )  
+                else: 
+                    buttons = [[ InlineKeyboardButton('💬ᴍꜱɢ ɪɴ ᴍᴀʟᴀyᴀʟᴀᴍ💬', callback_data='makri') ]]
+                    z = await message.reply_text(text=f"<i>{message.from_user.mention}🪛I don't have a file in the word you sent, sometimes the word you sent is wrong.If this movie is an OTT release please check the spelling and then send it.</i>", reply_markup = InlineKeyboardMarkup(buttons))   
+                    await asyncio.sleep(100)
+                    await z.delete()
+                    if settings["spell_check"]:
                     return await advantage_spell_chok(client, msg)
-                else:
-                    await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
-                    return
+                    else:
+                        await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
+                        return
         else:
             return
     else:

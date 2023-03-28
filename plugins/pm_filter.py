@@ -1179,7 +1179,7 @@ async def auto_filter(client, msg, spoll=False):
                 await asyncio.sleep(100)
                 await z.delete()
                 if settings["spell_check"]:
-                return await advantage_spell_chok(client, msg)
+                    return await advantage_spell_chok(client, msg)
                 else:
                      await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
                      return

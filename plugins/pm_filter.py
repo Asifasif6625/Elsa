@@ -1174,8 +1174,8 @@ async def auto_filter(client, msg, spoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:       
-                buttons = [[ InlineKeyboardButton('💬ᴍꜱɢ ɪɴ ᴍᴀʟᴀyᴀʟᴀᴍ💬', callback_data='makri') ]]
-                z = await message.reply_sticker('CAACAgUAAxkBAAF_rEtkOertTwGbBFyXkNnk1iw17_B84AAClgMAAkRgyFWktdHrXGo80h4E CAACAgUAAxkBAAF_rExkOer0RtFOVFLgNaoOD0c1UI07kAACrQQAAvv3yFUkia5hvyvqRR4E CAACAgUAAxkBAAF_rExkOer0RtFOVFLgNaoOD0c1UI07kAACrQQAAvv3yFUkia5hvyvqRR4E CAACAgUAAxkBAAF_rE9kOesNKAN00v5xXIv3qtZyEvb0sgACAgQAAhn4yFUdt1SIft5aMB4E', reply_markup = InlineKeyboardMarkup(buttons))   
+                buttons = [[ InlineKeyboardButton('ɢᴏᴏɢʟᴇ', url=f"https://www.google.com/search?q={reqst_gle}") ]]
+                z = await message.reply_photo(photo="https://telegra.ph/file/acb82cc515d027857a0f7.jpg", caption=f"<b>ഹായ് {message.from_user.mention}, നിങ്ങൾ സെർച്ച്‌ ചെയ്ത മൂവി എന്റെ പക്കൽ ഇല്ല. നിങ്ങൾ അയച്ച സ്പെല്ലിങ് ശരി ആണോ എന്ന് അറിയാൻ ɢᴏᴏɢʟᴇ ബട്ടൺ ക്ലിക്ക് ചെയ്ത് സ്പെല്ലിങ് ശരി ആണോ എന്ന് നോക്കുക, എന്നിട്ടും മൂവി കിട്ടീല എങ്കിൽ ഈ മൂവി ഫയൽ എന്റെ ഡാറ്റബേസിൽ ഇല്ല.\n• ᴏɴʟy ꜱᴜᴩᴩᴏʀᴛ ᴇɴɢʟɪꜱʜ ʟᴀɴɢᴜᴀɢᴇ ᴏɴʟy</b>", reply_markup = InlineKeyboardMarkup(buttons))   
                 await asyncio.sleep(100)
                 await z.delete()
                 if settings["spell_check"]:

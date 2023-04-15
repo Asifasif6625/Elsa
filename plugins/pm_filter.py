@@ -1175,7 +1175,7 @@ async def auto_filter(client, msg, spoll=False):
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:       
                 buttons = [[ InlineKeyboardButton('💬ᴍꜱɢ ɪɴ ᴍᴀʟᴀyᴀʟᴀᴍ💬', callback_data='makri') ]]
-                z = await message.reply_sticker('CAACAgUAAxkBAAF_rE9kOesNKAN00v5xXIv3qtZyEvb0sgACAgQAAhn4yFUdt1SIft5aMB4E', reply_markup = InlineKeyboardMarkup(buttons))   
+                z = await message.reply_sticker("CAACAgUAAxkBAAF_rEtkOertTwGbBFyXkNnk1iw17_B84AAClgMAAkRgyFWktdHrXGo80h4E, CAACAgUAAxkBAAF_rExkOer0RtFOVFLgNaoOD0c1UI07kAACrQQAAvv3yFUkia5hvyvqRR4E, CAACAgUAAxkBAAF_rExkOer0RtFOVFLgNaoOD0c1UI07kAACrQQAAvv3yFUkia5hvyvqRR4E, CAACAgUAAxkBAAF_rE9kOesNKAN00v5xXIv3qtZyEvb0sgACAgQAAhn4yFUdt1SIft5aMB4E", reply_markup = InlineKeyboardMarkup(buttons))   
                 await asyncio.sleep(100)
                 await z.delete()
                 if settings["spell_check"]:

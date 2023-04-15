@@ -1175,7 +1175,7 @@ async def auto_filter(client, msg, spoll=False):
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:       
                 buttons = [[ InlineKeyboardButton('💬ᴍꜱɢ ɪɴ ᴍᴀʟᴀyᴀʟᴀᴍ💬', callback_data='makri') ]]
-                z = await message.reply_text(text=f"<i>{message.from_user.mention}🪛I don't have a file in the word you sent, sometimes the word you sent is wrong.If this movie is an OTT release please check the spelling and then send it.</i>\n\n<b>㋛ Pleαѕe Reqυѕт Movιe Eɴɢlιѕн Lαɴɢυαɢe Oɴly.</b>", reply_markup = InlineKeyboardMarkup(buttons))   
+                z = await message.reply_sticker('CAACAgUAAxkBAAF_rE9kOesNKAN00v5xXIv3qtZyEvb0sgACAgQAAhn4yFUdt1SIft5aMB4E', reply_markup = InlineKeyboardMarkup(buttons))   
                 await asyncio.sleep(100)
                 await z.delete()
                 if settings["spell_check"]:

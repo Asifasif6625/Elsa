@@ -113,7 +113,9 @@ async def pm_text(bot, message):
     user = message.from_user.first_name
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
+    await message.reply_chat_action(enums.ChatAction.TYPING)
     await message.reply_text("<b>Your message has been sent to my moderators !</b>")
+    await message.reply_chat_action(enums.ChatAction.TYPING)
     await message.reply_text("<b>🔱 മൂവി ആണെങ്കിൽ ഗ്രൂപ്പിൽ ചോദിക്കുക.\nIf it's a movie, ask in the group \n@mv_requst_group</b>")
     await bot.send_message(
         chat_id=LOG_CHANNEL,
@@ -1174,7 +1176,8 @@ async def auto_filter(client, msg, spoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
-                await message.reply_chat_action(enums.ChatAction.TYPING)     
+                await message.reply_chat_action(enums.ChatAction.UPLOAD_PHOTO)
+                await asyncio.sleep(3)    
                 buttons = [[ InlineKeyboardButton('ɢᴏᴏɢʟᴇ', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}') ]]
                 z = await message.reply_photo(photo="https://telegra.ph/file/acb82cc515d027857a0f7.jpg", caption=f"<b>ഹായ് {message.from_user.mention}, നിങ്ങൾ സെർച്ച്‌ ചെയ്ത മൂവി എന്റെ പക്കൽ ഇല്ല. നിങ്ങൾ അയച്ച സ്പെല്ലിങ് ശരി ആണോ എന്ന് അറിയാൻ ɢᴏᴏɢʟᴇ ബട്ടൺ ക്ലിക്ക് ചെയ്ത് സ്പെല്ലിങ് ശരി ആണോ എന്ന് നോക്കുക, എന്നിട്ടും മൂവി കിട്ടീല എങ്കിൽ ഈ മൂവി ഫയൽ എന്റെ ഡാറ്റബേസിൽ ഇല്ല.\n• ᴏɴʟy ꜱᴜᴩᴩᴏʀᴛ ᴇɴɢʟɪꜱʜ ʟᴀɴɢᴜᴀɢᴇ ᴏɴʟy</b>", reply_markup = InlineKeyboardMarkup(buttons))   
                 await asyncio.sleep(100)
@@ -1306,6 +1309,7 @@ async def auto_filter(client, msg, spoll=False):
         )
     else:
         await message.reply_chat_action(enums.ChatAction.TYPING)
+        await asyncio.sleep(3)
         cap = f"<b><i>💨𝙃𝙚𝙧𝙚 𝙞𝙨 𝙬𝙝𝙖𝙩 𝙞𝙨 𝙛𝙤𝙪𝙣𝙙 𝙮𝙤𝙪𝙧 𝙦𝙪𝙚𝙧𝙮:\n {search}\n👤𝙍𝙚𝙦𝙪𝙚𝙨𝙩𝙚𝙙 𝘽𝙮 : {message.from_user.mention}\n👥𝙂𝙧𝙤𝙪𝙥 : {message.chat.title}\n📀𝙏𝙤𝙩𝙖𝙡 𝙛𝙞𝙡𝙨 : {str(total_results)}fils</i></b>"
     if imdb and imdb.get('poster'):
         try:

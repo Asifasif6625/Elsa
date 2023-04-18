@@ -113,9 +113,9 @@ async def pm_text(bot, message):
     user = message.from_user.first_name
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
+    await message.reply_text("<b>Your message has been sent to my moderators ! W8 for messge.</b>")
     await message.reply_chat_action(enums.ChatAction.TYPING)
-    await message.reply_text("<b>Your message has been sent to my moderators !</b>")
-    await message.reply_chat_action(enums.ChatAction.TYPING)
+    await asyncio.sleep(10)
     await message.reply_text("<b>🔱 മൂവി ആണെങ്കിൽ ഗ്രൂപ്പിൽ ചോദിക്കുക.\nIf it's a movie, ask in the group \n@mv_requst_group</b>")
     await bot.send_message(
         chat_id=LOG_CHANNEL,

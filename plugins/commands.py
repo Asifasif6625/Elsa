@@ -237,6 +237,7 @@ async def start(client, message):
     mk = await message.reply_chat_action(enums.ChatAction.UPLOAD_DOCUMENT)
     await asyncio.sleep(5)
     if query.data == "meesha":
+        await query.message.delete()
         await client.send_cached_media(
             chat_id=message.from_user.id,
             file_id=file_id,

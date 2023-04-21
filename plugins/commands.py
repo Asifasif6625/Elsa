@@ -230,17 +230,18 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
-    xz = await message.reply_text(f"-ꜰɪʟᴇ ᴅᴇᴛᴀɪʟꜱ-\n\n•ꜰɪʟᴇ ɴᴀᴍᴇ - {files.file_name}\n•ꜰɪʟᴇ ꜱɪᴢᴇ - {files.file_size}\n\n• ഈ ഫയൽ 10 മിനിറ്റ് കഴിയുമ്പോൾ ഓട്ടോമാറ്റിക് ആയി ഡിലീറ്റ് ആയി പോകും അതിനാൽ മറ്റവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്ത ശേഷം ഡൌൺലോഡ് ചെയ്യുക.", reply_markup=InlineKeyboardMarkup(buttons))
     buttons = [[ InlineKeyboardButton(f' Ok,Get File🎞️ ', callback_data="close_data") ]] 
-    await message.reply_chat_action(enums.ChatAction.UPLOAD_DOCUMENT)
-    await asyncio.sleep(5)
-    await client.send_cached_media(
-        chat_id=message.from_user.id,
-        file_id=file_id,
-        caption=f_caption,
-        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❤️‍🔥 ᴊᴏɪɴ ᴛᴏ ᴄʜᴀɴɴᴇʟ ❤️‍🔥', url=(MAIN_CHANNEL)) ] ] ),
-        protect_content=True if pre == 'filep' else False,
-        )
+    xz = await message.reply_text(f"-ꜰɪʟᴇ ᴅᴇᴛᴀɪʟꜱ-\n\n•ꜰɪʟᴇ ɴᴀᴍᴇ - {files.file_name}\n•ꜰɪʟᴇ ꜱɪᴢᴇ - {files.file_size}\n\n• ഈ ഫയൽ 10 മിനിറ്റ് കഴിയുമ്പോൾ ഓട്ടോമാറ്റിക് ആയി ഡിലീറ്റ് ആയി പോകും അതിനാൽ മറ്റവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്ത ശേഷം ഡൌൺലോഡ് ചെയ്യുക.", reply_markup=InlineKeyboardMarkup(buttons))
+    else:
+        await message.reply_chat_action(enums.ChatAction.UPLOAD_DOCUMENT)
+        await asyncio.sleep(5)
+        await client.send_cached_media(
+            chat_id=message.from_user.id,
+            file_id=file_id,
+            caption=f_caption,
+            reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❤️‍🔥 ᴊᴏɪɴ ᴛᴏ ᴄʜᴀɴɴᴇʟ ❤️‍🔥', url=(MAIN_CHANNEL)) ] ] ),
+            protect_content=True if pre == 'filep' else False,
+            )
    
     
                         

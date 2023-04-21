@@ -510,6 +510,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     await query.answer(f"Hᴇʏ {query.from_user.first_name}, Tʜɪs Is Nᴏᴛ Yᴏᴜʀ Mᴏᴠɪᴇ Rᴇǫᴜᴇsᴛ. Rᴇǫᴜᴇsᴛ Yᴏᴜʀ's !", show_alert=True)
             else:
                 if clicked == typed:
+                    await message.reply_chat_action(enums.ChatAction.TYPING)
+                    await asyncio.sleep(5)
                     file_send=await client.send_cached_media(
                         chat_id=FILE_CHANNEL,
                         file_id=file_id,

@@ -230,6 +230,7 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
+    xz = await message.reply_text(f"-ꜰɪʟᴇ ᴅᴇᴛᴀɪʟꜱ-\n\n•ꜰɪʟᴇ ɴᴀᴍᴇ - {file.file_name}\n•ꜰɪʟᴇ ꜱɪᴢᴇ - {file.file_size}\n•ꜰɪʟᴇ ʀᴇqᴜꜱᴛᴇʀ - \n•yᴏᴜ ꜱᴇᴀʀᴄʜ - \n\n• ഈ ഫയൽ 10 മിനിറ്റ് കഴിയുമ്പോൾ ഓട്ടോമാറ്റിക് ആയി ഡിലീറ്റ് ആയി പോകും അതിനാൽ മറ്റവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്ത ശേഷം ഡൌൺലോഡ് ചെയ്യുക.")
     await message.reply_chat_action(enums.ChatAction.UPLOAD_DOCUMENT)
     await asyncio.sleep(5)
     await client.send_cached_media(

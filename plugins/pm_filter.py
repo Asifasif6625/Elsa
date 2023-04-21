@@ -1176,10 +1176,10 @@ async def auto_filter(client, msg, spoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
-                await message.reply_chat_action(enums.ChatAction.UPLOAD_PHOTO)
+                await message.reply_chat_action(enums.ChatAction.TYPING)
                 await asyncio.sleep(3)    
                 buttons = [[ InlineKeyboardButton('ɢᴏᴏɢʟᴇ', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}') ]]
-                z = await message.reply_photo(photo="https://telegra.ph/file/acb82cc515d027857a0f7.jpg", caption=f"<b>ഹായ് {message.from_user.mention}, നിങ്ങൾ സെർച്ച്‌ ചെയ്ത മൂവി എന്റെ പക്കൽ ഇല്ല. നിങ്ങൾ അയച്ച സ്പെല്ലിങ് ശരി ആണോ എന്ന് അറിയാൻ ɢᴏᴏɢʟᴇ ബട്ടൺ ക്ലിക്ക് ചെയ്ത് സ്പെല്ലിങ് ശരി ആണോ എന്ന് നോക്കുക, എന്നിട്ടും മൂവി കിട്ടീല എങ്കിൽ ഈ മൂവി ഫയൽ എന്റെ ഡാറ്റബേസിൽ ഇല്ല.\n• ᴏɴʟy ꜱᴜᴩᴩᴏʀᴛ ᴇɴɢʟɪꜱʜ ʟᴀɴɢᴜᴀɢᴇ ᴏɴʟy</b>", reply_markup = InlineKeyboardMarkup(buttons))   
+                z = await message.reply_photo(photo="https://telegra.ph/file/acb82cc515d027857a0f7.jpg", caption=f"<b>ഹായ് {message.from_user.mention}, നിങ്ങൾ സെർച്ച്‌ ചെയ്ത മൂവി എന്റെ പക്കൽ ഇല്ല/റിലീസ് ആയിക്കാണില്ല. നിങ്ങൾ അയച്ച സ്പെല്ലിങ് ശരി ആണോ എന്ന് അറിയാൻ ɢᴏᴏɢʟᴇ ബട്ടൺ ക്ലിക്ക് ചെയ്ത് സ്പെല്ലിങ് ശരി ആണോ എന്ന് ɢᴏᴏɢʟᴇ-ൽ നോക്കുക,ശേഷം ഒന്നും കൂടി ട്രൈ ചെയ്യുക, എന്നിട്ടും മൂവി കിട്ടീല എങ്കിൽ ഈ മൂവി ഫയൽ എന്റെ ഡാറ്റബേസിൽ ഇല്ല.\n• ᴏɴʟy ꜱᴜᴩᴩᴏʀᴛ ᴇɴɢʟɪꜱʜ ʟᴀɴɢᴜᴀɢᴇ ᴏɴʟy</b>", reply_markup = InlineKeyboardMarkup(buttons))   
                 await asyncio.sleep(100)
                 await z.delete()
                 if settings["spell_check"]:

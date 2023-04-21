@@ -232,8 +232,6 @@ async def start(client, message):
         f_caption = f"{files.file_name}"
     buttons = [[ InlineKeyboardButton(f' Ok,Get File🎞️ ', callback_data="next12") ]] 
     xz = await message.reply_text(f"-ꜰɪʟᴇ ᴅᴇᴛᴀɪʟꜱ-\n\n•ꜰɪʟᴇ ɴᴀᴍᴇ - {files.file_name}\n•ꜰɪʟᴇ ꜱɪᴢᴇ - {files.file_size}\n\n• ഈ ഫയൽ 10 മിനിറ്റ് കഴിയുമ്പോൾ ഓട്ടോമാറ്റിക് ആയി ഡിലീറ്റ് ആയി പോകും അതിനാൽ മറ്റവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്ത ശേഷം ഡൌൺലോഡ് ചെയ്യുക.", reply_markup=InlineKeyboardMarkup(buttons))
-    elif query.data == "next12":
-        await xz.delete()
     await message.reply_chat_action(enums.ChatAction.UPLOAD_DOCUMENT)
     await asyncio.sleep(5)
     await client.send_cached_media(
@@ -243,7 +241,9 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❤️‍🔥 ᴊᴏɪɴ ᴛᴏ ᴄʜᴀɴɴᴇʟ ❤️‍🔥', url=(MAIN_CHANNEL)) ] ] ),
         protect_content=True if pre == 'filep' else False,
         )
-                    
+   
+    elif query.data == "next12":
+        await xz.delete()                
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):

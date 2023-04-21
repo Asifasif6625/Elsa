@@ -232,7 +232,7 @@ async def start(client, message):
         f_caption = f"{files.file_name}"
     buttons = [[ InlineKeyboardButton(f' Ok,Get File🎞️ ', callback_data="close_data") ]] 
     xz = await message.reply_text(text=f"-ꜰɪʟᴇ ᴅᴇᴛᴀɪʟꜱ-\n\n•ꜰɪʟᴇ ɴᴀᴍᴇ - {files.file_name}\n•ꜰɪʟᴇ ꜱɪᴢᴇ - {files.file_size}\n\n• ഈ ഫയൽ 10 മിനിറ്റ് കഴിയുമ്പോൾ ഓട്ടോമാറ്റിക് ആയി ഡിലീറ്റ് ആയി പോകും അതിനാൽ മറ്റവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്ത ശേഷം ഡൌൺലോഡ് ചെയ്യുക.", reply_markup=InlineKeyboardMarkup(buttons))
-    await my_function(callback_data) 
+    await my_function(buttons) 
     await xz.delete()
     mk = await message.reply_chat_action(enums.ChatAction.UPLOAD_DOCUMENT)
     await asyncio.sleep(5)

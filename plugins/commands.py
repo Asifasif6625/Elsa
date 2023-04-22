@@ -230,21 +230,18 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
-    buttons = [[ InlineKeyboardButton(f' Ok,Get File🎞️ ', callback_data="meesha") ]] 
+    buttons = [[ InlineKeyboardButton(f' Ok ', callback_data="meesha") ]] 
     xz = await message.reply_text(text=f"-ꜰɪʟᴇ ᴅᴇᴛᴀɪʟꜱ-\n\n•ꜰɪʟᴇ ɴᴀᴍᴇ - {files.file_name}\n•ꜰɪʟᴇ ꜱɪᴢᴇ - {files.file_size}\n\n• ഈ ഫയൽ 10 മിനിറ്റ് കഴിയുമ്പോൾ ഓട്ടോമാറ്റിക് ആയി ഡിലീറ്റ് ആയി പോകും അതിനാൽ മറ്റവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്ത ശേഷം ഡൌൺലോഡ് ചെയ്യുക.", reply_markup=InlineKeyboardMarkup(buttons))
-    await asyncio.sleep(10)  
-    await xz.delete()
+    await asyncio.sleep(1)  
     mk = await message.reply_chat_action(enums.ChatAction.UPLOAD_DOCUMENT)
     await asyncio.sleep(5)
-    if query.data == "meesha":
-        await query.message.delete()
-        await client.send_cached_media(
-            chat_id=message.from_user.id,
-            file_id=file_id,
-            caption=f_caption,
-            reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❤️‍🔥 ᴊᴏɪɴ ᴛᴏ ᴄʜᴀɴɴᴇʟ ❤️‍🔥', url=(MAIN_CHANNEL)) ] ] ),
-            protect_content=True if pre == 'filep' else False,
-            )
+    await client.send_cached_media(
+        chat_id=message.from_user.id,
+        file_id=file_id,
+        caption=f_caption,
+        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❤️‍🔥 ᴊᴏɪɴ ᴛᴏ ᴄʜᴀɴɴᴇʟ ❤️‍🔥', url=(MAIN_CHANNEL)) ] ] ),
+        protect_content=True if pre == 'filep' else False,
+        )
    
     
                         

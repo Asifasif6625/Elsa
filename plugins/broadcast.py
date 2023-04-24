@@ -11,7 +11,7 @@ import asyncio
 async def broadcast_pin(bot, message):
     users = await db.get_all_users()
     b_msg = message.reply_to_message
-    await b_msg.pin()
+    await db.pin()
     sts = await message.reply_text(
         text='Broadcasting your messages...'
     )

@@ -192,7 +192,6 @@ async def start(client, message):
                     continue
             await asyncio.sleep(1) 
         return await sts.delete()
-      
     elif data.split("-", 1)[0] == "XD":
         xd = await message.reply_text("`Please Wait...`")
         file_id = data.split("-", 1)[1]

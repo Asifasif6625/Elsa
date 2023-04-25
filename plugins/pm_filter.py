@@ -1228,7 +1228,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"𓆏{get_size(file.file_size)}﹅ {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                        text=f"𓆏{get_size(file.file_size)}﹅ {file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=XD-{file.file_id}"
                     ),
                 ]
                 for file in files
@@ -1238,11 +1238,11 @@ async def auto_filter(client, msg, spoll=False):
                 [
                     InlineKeyboardButton(
                         text=f"{file.file_name}",
-                        callback_data=f'{pre}#{file.file_id}',
+                        url=f"https://telegram.dog/{temp.U_NAME}?start=XD-{file.file_id}",
                     ),
                     InlineKeyboardButton(
                         text=f"{get_size(file.file_size)}",
-                        callback_data=f'{pre}#{file.file_id}',
+                        url=f"https://telegram.dog/{temp.U_NAME}?start=XD-{file.file_id}",
                     ),
                 ]
                 for file in files

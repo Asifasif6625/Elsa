@@ -213,7 +213,7 @@ async def start(client, message):
             ) 
         except Exception as e:
             logger.exception(e)
-        return      
+        return
 
     files_ = await get_file_details(file_id)           
     if not files_:

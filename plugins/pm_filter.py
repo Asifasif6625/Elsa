@@ -155,7 +155,7 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"𓆏{get_size(file.file_size)}﹅ {file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"𓆏{get_size(file.file_size)}﹅ {file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=XD_{file.file_id}")
                     ),
                 ]
                 for file in files
@@ -1204,7 +1204,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"𓆏{get_size(file.file_size)}﹅ {file.file_name}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"𓆏{get_size(file.file_size)}﹅ {file.file_name}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=XD_{file.file_id}")
                     ),
                 ]
                 for file in files
@@ -1310,7 +1310,7 @@ async def auto_filter(client, msg, spoll=False):
     else:
         await message.reply_chat_action(enums.ChatAction.TYPING)
         await asyncio.sleep(3)
-        cap = f"<b><i>💨𝙃𝙚𝙧𝙚 𝙞𝙨 𝙬𝙝𝙖𝙩 𝙞𝙨 𝙛𝙤𝙪𝙣𝙙 𝙮𝙤𝙪𝙧 𝙦𝙪𝙚𝙧𝙮:\n {search}\n👤𝙍𝙚𝙦𝙪𝙚𝙨𝙩𝙚𝙙 𝘽𝙮 : {message.from_user.mention}\n👥𝙂𝙧𝙤𝙪𝙥 : {message.chat.title}\n📀𝙏𝙤𝙩𝙖𝙡 𝙛𝙞𝙡𝙨 : {str(total_results)}fils</i></b>"
+        cap = f"<b><i>💨𝙃𝙚𝙧𝙚 𝙞𝙨 𝙬𝙝𝙖𝙩 𝙞𝙨 𝙛𝙤𝙪𝙣𝙙 𝙮𝙤𝙪𝙧 𝙦𝙪𝙚𝙧𝙮:\n {search}\n👤𝙍𝙚𝙦𝙪𝙚𝙨𝙩𝙚𝙙 𝘽𝙮 : {message.from_user.mention}\n👥𝙂𝙧𝙤𝙪𝙥 : {message.chat.title}\n📀𝙏𝙤𝙩𝙖𝙡 𝙛𝙞𝙡𝙨 : {str(total_results)} fils</i></b>"
     if imdb and imdb.get('poster'):
         try:
             if message.chat.id == SUPPORT_CHAT_ID:

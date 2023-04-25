@@ -262,7 +262,10 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❤️‍🔥 ᴊᴏɪɴ ᴛᴏ ᴄʜᴀɴɴᴇʟ ❤️‍🔥', url=(MAIN_CHANNEL)) ] ] ),
         protect_content=True if pre == 'filep' else False,
         )
-   
+    d = await client.delete_message(
+        chat_id=message.chat.id,
+        message_id=mssg_id
+        )
     
                         
 

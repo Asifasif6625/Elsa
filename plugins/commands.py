@@ -205,9 +205,11 @@ async def start(client, message):
             size = get_size(file.file_size)
             buttons = [[
                 InlineKeyboardButton('Ok,Get File📩', url=f"https://telegram.dog/{temp.U_NAME}?start=files_{file_id}")
+                ], [
+                InlineKeyboardButton('എനിക്ക് വേണ്ട🧯', callback_data='close_data')
             ]]
             await xd.edit(
-                text=f"<b>-ғɪʟᴇ ᴅᴇᴛᴀɪʟs-</b>\n\n•ғɪʟᴇ ɴᴀᴍᴇ - <code>{name}</code>\n•ғɪʟᴇ sɪᴢᴇ - <code>{size}<code/>\n\n•ഈ ഫയൽ 10 മിനിറ്റ് കഴിയുമ്പോൾ ഓട്ടോമാറ്റിക് ആയി ഡെലീറ്റ് ആയി പോകും അതിനാൽ മറ്റ്‌വിടെയെങ്കിലും ഫോർവേർഡ് ചെയ്ത ശേഷം ഡൗൺലോഡ് ചെയ്യുക",
+                text=f"<b>-ғɪʟᴇ ᴅᴇᴛᴀɪʟs-</b>\n\n📁ғɪʟᴇ ɴᴀᴍᴇ - <code>{name}</code>\n🪫ғɪʟᴇ sɪᴢᴇ - <code>{size}<code/>\n\n•ഈ ഫയൽ 10 മിനിറ്റ് കഴിയുമ്പോൾ ഓട്ടോമാറ്റിക് ആയി ഡെലീറ്റ് ആയി പോകും അതിനാൽ മറ്റ്‌വിടെയെങ്കിലും ഫോർവേർഡ് ചെയ്ത ശേഷം ഡൗൺലോഡ് ചെയ്യുക",
                 reply_markup=InlineKeyboardMarkup(buttons)
             ) 
         except Exception as e:
@@ -250,8 +252,7 @@ async def start(client, message):
     if f_caption is None:
         f_caption = f"{files.file_name}"
     await message.reply_chat_action(enums.ChatAction.UPLOAD_DOCUMENT)
-    await asyncio.sleep(10)
-    await xd.delete()
+    await asyncio.sleep(5) 
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
@@ -259,7 +260,7 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❤️‍🔥 ᴊᴏɪɴ ᴛᴏ ᴄʜᴀɴɴᴇʟ ❤️‍🔥', url=(MAIN_CHANNEL)) ] ] ),
         protect_content=True if pre == 'filep' else False,
         )
-                    
+        return await xd.delete()          
                         
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))

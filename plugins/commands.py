@@ -250,15 +250,21 @@ async def start(client, message):
     if f_caption is None:
         f_caption = f"{files.file_name}"
     await message.reply_chat_action(enums.ChatAction.UPLOAD_DOCUMENT)
-    await client.send_cached_media(
+    msg_id = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
         reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❤️‍🔥 ᴊᴏɪɴ ᴛᴏ ᴄʜᴀɴɴᴇʟ ❤️‍🔥', url=(MAIN_CHANNEL)) ] ] ),
         protect_content=True if pre == 'filep' else False,
         )
-           
-                        
+    ms_id = f"{msg_id.id - 2}"
+    try:
+        await client.delete_messages(
+            chat_id=message.from_user.id,
+            message_ids=int(ms_id)
+        )
+    except: 
+        pass               
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):

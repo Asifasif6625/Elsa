@@ -206,9 +206,8 @@ async def start(client, message):
             buttons = [[
                 InlineKeyboardButton('Ok,Get File📩', url=f"https://telegram.dog/{temp.U_NAME}?start=files_{file_id}")
             ]]
-            await xd.edit(
-                photo="https://telegra.ph/file/0554a597f9069eb253dc6.jpg",
-                caption=f"<b>-ғɪʟᴇ ᴅᴇᴛᴀɪʟs-</b>\n\n📁ғɪʟᴇ ɴᴀᴍᴇ - <code>{name}</code>\n🪫ғɪʟᴇ sɪᴢᴇ - <code>{size}<code/>\n\n•ഈ ഫയൽ 10 മിനിറ്റ് കഴിയുമ്പോൾ ഓട്ടോമാറ്റിക് ആയി ഡെലീറ്റ് ആയി പോകും അതിനാൽ മറ്റ്‌വിടെയെങ്കിലും ഫോർവേർഡ് ചെയ്ത ശേഷം ഡൗൺലോഡ് ചെയ്യുക",
+            await xd.edit(          
+                text=f"<b>-ғɪʟᴇ ᴅᴇᴛᴀɪʟs-</b>\n\n📁ғɪʟᴇ ɴᴀᴍᴇ - <code>{name}</code>\n🪫ғɪʟᴇ sɪᴢᴇ - <code>{size}<code/>\n\n•This is 📛CAPCHA - click GET FILE button.",
                 reply_markup=InlineKeyboardMarkup(buttons)
             ) 
         except Exception as e:

@@ -249,7 +249,7 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
-    await message.reply_chat_action(enums.ChatAction.UPLOAD_DOCUMENT)
+
     msg_id = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,

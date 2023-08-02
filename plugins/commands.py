@@ -204,8 +204,7 @@ async def start(client, message):
             name = file.file_name
             size = get_size(file.file_size)
             buttons = [[
-                InlineKeyboardButton('Ok,Get File📩', url=f"https://telegram.dog/{temp.U_NAME}?start=files_{file_id}")
-                ],[
+                InlineKeyboardButton('Ok,Get File📩', url=f"https://telegram.dog/{temp.U_NAME}?start=files_{file_id}"),
                 InlineKeyboardButton('close msg', callback_data= "close_data")
             ]]
             await xd.edit(          
